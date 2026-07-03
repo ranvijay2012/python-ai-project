@@ -35,7 +35,7 @@ poetry add --group dev black
 poetry add --group dev ruff
 
 <!-- Manually runing the application  -->
-poetry run uvicorn src.python_ai_project.main:app --reload
+poetry run uvicorn src.app.main:app --reload
 
 http://127.0.0.1:8000/
 
@@ -57,7 +57,8 @@ ai-fastapi-project/
 ├── poetry.lock
 └── README.md
 
-
+=====================================================================================
+=====================================================================================
 
 
 Poetry is a Python dependency and project management tool. It:
@@ -71,7 +72,9 @@ pip install poetry
 poetry --version
 poetry new python-ai-learning
 
-============================================================================
+=====================================================================================
+=====================================================================================
+
 For FastAPI, many developers prefer creating an empty folder and initializing Poetry:
 
 mkdir ai-fastapi-project
