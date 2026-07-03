@@ -60,6 +60,101 @@ ai-fastapi-project/
 =====================================================================================
 =====================================================================================
 
+<!-- Option 1: Run directly from the VS Code ▶️ Run button (Recommended) -->
+
+Your current code is almost correct, but the app path is wrong.
+
+Since main.py is inside the src folder, change:
+
+uvicorn.run(
+    "src.main:app",
+    host="127.0.0.1",
+    port=8000,
+    reload=True
+)
+
+Now: Open main.py
+Click the ▶ Run Python File button in the top-right corner.
+VS Code will execute
+
+python src/main.py  and your FastAPI server will start automatically.
+
+
+<!-- Option 2: Press F5 (Best for Development) -->
+Create a .vscode folder.
+Inside it create launch.json.
+
+python-ai-project/
+│
+├── .vscode/
+│   └── launch.json
+├── src/
+│   └── main.py
+
+launch.json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run FastAPI",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "src.main:app",
+                "--reload"
+            ],
+            "jinja": true
+        }
+    ]
+}
+
+Now simply press F5.
+No terminal command is required.
+
+<!-- Option 3: Create a Run Task -->
+Create .vscode/tasks.json
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run FastAPI",
+            "type": "shell",
+            "command": "poetry run uvicorn src.main:app --reload"
+        }
+    ]
+}
+
+Now press: Ctrl + Shift + B
+and VS Code starts the server.
+
+<!-- Option 4: Run by clicking the Python file -->
+Your main.py should be:
+
+from fastapi import FastAPI
+import uvicorn
+
+app = FastAPI()
+
+@app.get("/")
+def home():
+    return {"message": "Welcome to FastAPI"}
+
+if __name__ == "__main__":
+    uvicorn.run(
+        "src.main:app",
+        host="127.0.0.1",
+        port=8000,
+        reload=True
+    )
+
+Then simply click the Run (▶) button.
+
+
+=====================================================================================
+=====================================================================================
+
 
 Poetry is a Python dependency and project management tool. It:
 
