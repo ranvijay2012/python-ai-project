@@ -1,0 +1,27 @@
+[project]
+name = "python-ai-project"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "ranvijay2012",email = "ranvijaysingh2012@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi (>=0.139.0,<0.140.0)",
+    "uvicorn[standard] (>=0.49.0,<0.50.0)"
+]
+
+[tool.poetry]
+packages = [{include = "python_ai_project", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.1.1,<10.0.0)",
+    "black (>=26.5.1,<27.0.0)",
+    "ruff (>=0.15.20,<0.16.0)"
+]
